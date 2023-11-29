@@ -1,0 +1,662 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #000;
+  font: 17px/1.4 "orbitron";
+  color: #ddd;
+  letter-spacing: 1px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+.wrap {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  perspective: 1300px;
+}
+.wrap > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.wrap .status {
+  position: fixed;
+  width: 800px;
+  bottom: 5vh;
+  left: 50%;
+  margin-left: -400px;
+  text-align: center;
+  opacity: 0;
+  transition: all 1s;
+  transform: scale(5);
+  transition-timing-function: cubic-bezier(0.75, -0.55, 0.27, 1.47);
+}
+.wrap .status span {
+  font: bold 20px/40px "orbitron";
+  color: #fff;
+  opacity: 0.5;
+  animation: blink linear 1s infinite alternate;
+}
+.wrap .status.on {
+  opacity: 1;
+  transform: scale(1);
+}
+.wrap #circle {
+  width: 600px;
+  height: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -400px;
+  margin-left: -300px;
+  transform-style: preserve-3d;
+}
+.wrap #circle article {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+.wrap #circle article h1 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 30px;
+  color: lightcyan;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 10px aqua;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.wrap #circle article:hover h1, .wrap #circle article.on h1 {
+  top: -60px;
+  opacity: 1;
+}
+.wrap #circle article .inner {
+  width: 100%;
+  height: 100%;
+}
+.wrap #circle article .inner > div {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  padding: 50px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+.wrap #circle article .inner > div:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+.wrap #circle article.face1 .inner div {
+  width: 290px;
+  height: 254px;
+  float: left;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.wrap #circle article.face1 .inner div:nth-of-type(odd) {
+  margin-right: 20px;
+}
+.wrap #circle article.face1 .inner div i {
+  color: lightcyan;
+  font-size: 100px;
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+.wrap #circle article.face1 .inner div h2 {
+  color: lightcyan;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  transition: all 0.5s;
+}
+.wrap #circle article.face1 .inner div:hover i {
+  text-shadow: 0px 0px 10px aqua;
+  transform: scale(1.2);
+  opacity: 1;
+}
+.wrap #circle article.face1 .inner div:hover h2 {
+  text-shadow: 0px 0px 10px aqua;
+  transform: scale(1.2);
+}
+.wrap #circle article.face2 div h2 {
+  font: bold 24px/1 "orbitron";
+  color: lightcyan;
+  transition: all 0.5s;
+}
+.wrap #circle article.face2 div img {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.wrap #circle article.face2 div h3 {
+  font: bold 20px/1 "orbitron";
+  margin-bottom: 20px;
+  transition: all 0.5s;
+}
+.wrap #circle article.face2 div p {
+  font-size: 18px;
+  font-family: arial;
+  color: #ccc;
+}
+.wrap #circle article.face2 div:hover h2,
+.wrap #circle article.face2 div:hover h3 {
+  color: lightcyan;
+  text-shadow: 0px 0px 10px aqua;
+}
+.wrap #circle article.face3 .inner > div {
+  width: 100%;
+  height: 253px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrap #circle article.face3 .inner > div .pic {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+.wrap #circle article.face3 .inner > div .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wrap #circle article.face3 .inner > div .con {
+  width: 340px;
+}
+.wrap #circle article.face3 .inner > div .con h2 {
+  font: bold 22px/1 "orbitron";
+  color: #fff;
+  margin-bottom: 16px;
+}
+.wrap #circle article.face3 .inner > div .con p {
+  font: 18px/1.3 "arial";
+  color: #ddd;
+  margin-bottom: 20px;
+}
+.wrap #circle article.face3 .inner > div .con span {
+  font-size: 12px;
+  color: aqua;
+}
+.wrap #circle article.face4 .inner div:nth-of-type(1) {
+  width: 100%;
+  height: 600px;
+  margin-bottom: 20px;
+}
+.wrap #circle article.face4 .inner div:nth-of-type(1) video {
+  width: 100%;
+  border: 1px solid #fff;
+  margin-bottom: 30px;
+}
+.wrap #circle article.face4 .inner div:nth-of-type(2) {
+  width: 100%;
+  height: 180px;
+}
+.wrap #circle article.face4 .inner div:nth-of-type(2) em {
+  font: bold 14px/1 "orbitron";
+  color: aqua;
+}
+.wrap #circle article.face4 .inner div h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+.wrap #circle article.face4 .inner div p {
+  font: 16px/1.3 "arial";
+  color: #ddd;
+  margin-bottom: 5px;
+}
+.wrap #circle article.face5 .inner div img {
+  margin-bottom: 40px;
+}
+.wrap #circle article.face5 .inner div .pic {
+  width: 100%;
+  height: 250px;
+  border: 1px solid #bbb;
+  box-sizing: border-box;
+  background-color: #000;
+  margin-bottom: 70px;
+}
+.wrap #circle article.face5 .inner div .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wrap #circle article.face5 .inner div .reflect {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  transition: 0.5s;
+}
+.wrap #circle article.face5 .inner div:hover .reflect {
+  top: -40%;
+}
+.wrap #circle article.face6 .inner > div {
+  width: 100%;
+  height: 185px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.wrap #circle article.face6 .inner > div i {
+  width: 22%;
+  height: 100%;
+  border-right: 1px solid #bbb;
+  font-size: 50px;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: left;
+  padding-top: 16px;
+  padding-left: 10px;
+  transition: all 0.5s;
+}
+.wrap #circle article.face6 .inner > div .con {
+  width: 75%;
+  height: 100%;
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+.wrap #circle article.face6 .inner > div .con h2 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+  transform-origin: left center;
+  transition: all 0.5s;
+}
+.wrap #circle article.face6 .inner > div .con p {
+  font-size: 16px;
+  font-family: arial;
+  color: #ddd;
+}
+.wrap #circle article.face6 .inner > div:hover i {
+  transform: scale(1.2);
+  color: lightcyan;
+  text-shadow: 0px 0px 10px aqua;
+}
+.wrap #circle article.face6 .inner > div:hover .con h2 {
+  transform: scale(1.2);
+  color: lightcyan;
+  text-shadow: 0px 0px 10px aqua;
+}
+.wrap #circle article.face7 .inner div div {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.wrap #circle article.face7 .inner div div video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.wrap #circle article.face7 .inner div div h2 {
+  position: absolute;
+  top: 140px;
+  left: 50px;
+  font-size: 40px;
+  color: #fff;
+  text-align: left;
+  text-shadow: 2px 2px 5px #555;
+}
+.wrap #circle article.face7 .inner div div img:nth-of-type(1) {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.wrap #circle article.face7 .inner div div img:nth-of-type(2) {
+  position: absolute;
+  bottom: 85px;
+  right: -40px;
+  width: 90%;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(1) {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(1) i {
+  color: #fff;
+  font-size: 200px;
+  position: absolute;
+  bottom: 60px;
+  left: 50px;
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(1) span {
+  font: bold 120px/1 "orbitron";
+  position: absolute;
+  bottom: 90px;
+  right: 60px;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(1) span em {
+  font: bold 50px/1 "arial";
+  position: absolute;
+  top: -20px;
+  right: -30px;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(2), .wrap #circle article.face8 .inner div:nth-of-type(3) {
+  width: 290px;
+  height: 380px;
+  margin-right: 20px;
+  float: left;
+  text-align: center;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(2) i, .wrap #circle article.face8 .inner div:nth-of-type(3) i {
+  font-size: 120px;
+  color: #fff;
+  opacity: 0.8;
+  transition: 0.5s;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(2) h3, .wrap #circle article.face8 .inner div:nth-of-type(3) h3 {
+  margin-top: 30px;
+  margin-bottom: 14px;
+  font: bold 20px/1 "orbitron";
+}
+.wrap #circle article.face8 .inner div:nth-of-type(2) p, .wrap #circle article.face8 .inner div:nth-of-type(3) p {
+  font: 16px/1 "arial";
+  color: #ccc;
+  margin-bottom: 40px;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(2) span, .wrap #circle article.face8 .inner div:nth-of-type(3) span {
+  font: 30px/1 "orbitron";
+  color: #ddd;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(2) span strong, .wrap #circle article.face8 .inner div:nth-of-type(3) span strong {
+  font-size: 16px;
+  color: #bbb;
+  position: relative;
+  top: -16px;
+  left: 5px;
+}
+.wrap #circle article.face8 .inner div:nth-of-type(3) {
+  margin-right: 0px;
+}
+
+.face1 {
+  transform: rotateY(0deg) translateZ(-764px);
+}
+
+.face2 {
+  transform: rotateY(45deg) translateZ(-764px);
+}
+
+.face3 {
+  transform: rotateY(90deg) translateZ(-764px);
+}
+
+.face4 {
+  transform: rotateY(135deg) translateZ(-764px);
+}
+
+.face5 {
+  transform: rotateY(180deg) translateZ(-764px);
+}
+
+.face6 {
+  transform: rotateY(225deg) translateZ(-764px);
+}
+
+.face7 {
+  transform: rotateY(270deg) translateZ(-764px);
+}
+
+.face8 {
+  transform: rotateY(315deg) translateZ(-764px);
+}
+
+.mode {
+  position: fixed;
+  top: 7vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  font: bold 14px/1 "orbitron";
+  color: #fff;
+  cursor: pointer;
+}
+.mode li {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.mode li.on {
+  opacity: 1;
+  text-shadow: 0px 0px 10px aqua;
+}
+
+.navi {
+  width: 800px;
+  position: fixed;
+  bottom: 6vh;
+  left: 50%;
+  margin-left: -400px;
+  display: flex;
+  justify-content: space-between;
+  font: bold 12px/1 "orbitron";
+  color: #fff;
+  cursor: pointer;
+}
+.navi li {
+  position: relative;
+  bottom: -60px;
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.75, -0.55, 0.27, 1.47);
+}
+.navi li:nth-of-type(1) {
+  transition-delay: 0.05s;
+}
+.navi li:nth-of-type(2) {
+  transition-delay: 0.1s;
+}
+.navi li:nth-of-type(3) {
+  transition-delay: 0.15s;
+}
+.navi li:nth-of-type(4) {
+  transition-delay: 0.2s;
+}
+.navi li:nth-of-type(5) {
+  transition-delay: 0.25s;
+}
+.navi li:nth-of-type(6) {
+  transition-delay: 0.3s;
+}
+.navi li:nth-of-type(7) {
+  transition-delay: 0.35s;
+}
+.navi li:nth-of-type(8) {
+  transition-delay: 0.4s;
+}
+.navi.on li {
+  bottom: 0;
+  opacity: 0.5;
+}
+.navi.on li.on {
+  opacity: 1;
+  text-shadow: 0px 0px 10px aqua;
+}
+
+.prev {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: -300px;
+  opacity: 1;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.5s;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+}
+.prev .inner {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  margin-top: -50px;
+  text-align: center;
+}
+.prev .inner .top {
+  width: 100px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  top: 115px;
+  left: 0;
+  transform: rotate(145deg);
+  transition: all 1s 0.5s;
+  opacity: 1;
+}
+.prev .inner .bottom {
+  width: 100px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 115px;
+  left: 0;
+  transform: rotate(-145deg);
+  transition: all 1s 0.5s;
+  opacity: 1;
+}
+.prev .inner span {
+  font: bold 20px/100px "orbitron";
+  color: #fff;
+  letter-spacing: 2px;
+  position: relative;
+  left: 60px;
+  text-shadow: 0px 0px 10px #fff;
+  opacity: 1;
+  transition: all 0.5s 1.5s;
+}
+.prev.on {
+  left: 0;
+  opacity: 1;
+}
+.prev.on .inner .top {
+  top: 15px;
+  transform: rotate(-45deg);
+  box-shadow: 0px 0px 10px #fff;
+  opacity: 1;
+}
+.prev.on .inner .bottom {
+  bottom: 14px;
+  transform: rotate(45deg);
+  box-shadow: 0px 0px 10px #fff;
+  opacity: 1;
+}
+.prev.on .inner span {
+  left: 40px;
+  opacity: 1;
+}
+
+.next {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  right: -300px;
+  opacity: 1;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.5s;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
+}
+.next .inner {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  margin-top: -50px;
+  text-align: center;
+}
+.next .inner .top {
+  width: 100px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  top: 115px;
+  right: 0;
+  transform: rotate(-145deg);
+  transition: all 1s 0.5s;
+  opacity: 1;
+}
+.next .inner .bottom {
+  width: 100px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 115px;
+  right: 0;
+  transform: rotate(145deg);
+  transition: all 1s 0.5s;
+  opacity: 1;
+}
+.next .inner span {
+  font: bold 20px/100px "orbitron";
+  color: #fff;
+  letter-spacing: 2px;
+  position: relative;
+  right: 60px;
+  text-shadow: 0px 0px 10px #fff;
+  opacity: 1;
+  transition: all 0.5s 1.5s;
+}
+.next.on {
+  right: 0;
+  opacity: 1;
+}
+.next.on .inner .top {
+  top: 15px;
+  transform: rotate(45deg);
+  box-shadow: 0px 0px 10px #fff;
+  opacity: 1;
+}
+.next.on .inner .bottom {
+  bottom: 14px;
+  transform: rotate(-45deg);
+  box-shadow: 0px 0px 10px #fff;
+  opacity: 1;
+}
+.next.on .inner span {
+  right: 40px;
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */
